@@ -1,1 +1,95 @@
-d
+<!-- taulu.html -->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taktiikkataulu – NHL 11</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/taulu.css" />
+</head>
+<body>
+  <div class="whiteboard-layout">
+    <!-- Sidebar toolbar -->
+    <aside class="toolbar">
+      <h2>Taktiikkataulu</h2>
+
+      <!-- Kokoonpano / Roster selector -->
+      <div class="roster-selector">
+        <label>Kokoonpano</label>
+        <div id="rosterSelectorContainer"></div>
+      </div>
+
+      <!-- Viisikko / Combo dropdown -->
+      <div class="toggle-group">
+        <label>Valitse viisikko</label>
+        <select id="comboSelect" style="width:100%;"></select>
+      </div>
+
+      <!-- Goal orientation -->
+      <div class="goal-orientation">
+        <label for="goalSelect">Maalin sijainti</label>
+        <select id="goalSelect">
+          <option value="bottom">Alhaalla</option>
+          <option value="top">Ylhäällä</option>
+        </select>
+      </div>
+
+      <!-- Vastustajat (Opponents slider) -->
+      <div class="toggle-group opponent-slider-group">
+        <label for="opponentSlider">Vastustajat (0-5): <span id="opponentCountDisplay">0</span></label>
+        <input type="range" id="opponentSlider" min="0" max="5" value="0" />
+      </div>
+
+      <!-- Drawing tools (Shapes and Colors) -->
+      <div class="drawing-tools">
+        <label>Piirtotyökalut</label>
+        <div class="tool-palette" id="toolPalette">
+          <button class="tool-btn active" data-shape="freehand" title="Vapaa piirto">〰️</button>
+          <button class="tool-btn" data-shape="line" title="Suora viiva">📏</button>
+          <button class="tool-btn" data-shape="dashed" title="Katkoviiva" style="font-weight: 800; letter-spacing: -2px;">- - -</button>
+          <button class="tool-btn" data-shape="arrow" title="Nuoli">↗️</button>
+        </div>
+        <div class="color-palette" id="colorPalette">
+          <button class="color-btn active" data-color="#1e293b" style="background: #1e293b;" title="Musta"></button>
+          <button class="color-btn" data-color="#dc2626" style="background: #dc2626;" title="Punainen"></button>
+          <button class="color-btn" data-color="#2563eb" style="background: #2563eb;" title="Sininen"></button>
+          <button class="color-btn" data-color="#16a34a" style="background: #16a34a;" title="Vihreä"></button>
+          <button class="color-btn" data-color="#f59e0b" style="background: #f59e0b;" title="Keltainen"></button>
+        </div>
+      </div>
+
+      <!-- Drawing mode toggle for mobile/touch -->
+      <div class="toggle-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="forceDrawMode" />
+          <span>Lukitse piirtotila (Touch)</span>
+        </label>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="actions">
+        <button id="btnUndo" class="secondary" title="Kumoa viimeisin piirros">Kumoa (Ctrl+Z)</button>
+        <button id="btnClearDrawings" class="secondary">Poista kaikki piirrokset</button>
+      </div>
+
+      <!-- Instructions -->
+      <div class="instructions">
+        <strong>Ohjeet</strong><br /><br />
+        <strong>Hiiri/Touch:</strong> Siirrä pelaajaa/mailaa/vastustajaa<br />
+        <strong>Ctrl + Hiiri:</strong> Piirrä<br />
+        <strong>Tuplaklikkaus:</strong> Pyyhi piirros
+      </div>
+
+      <a href="index.html" class="back-link">← Takaisin kokoonpanoon</a>
+    </aside>
+
+    <!-- Canvas area -->
+    <main class="canvas-area">
+      <canvas id="whiteboardCanvas" width="1000" height="700"></canvas>
+    </main>
+  </div>
+
+  <script type="module" src="board/main.js"></script>
+</body>
+</html>
