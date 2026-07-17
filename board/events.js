@@ -185,7 +185,7 @@ export function initEvents(canvasElement, onRedraw) {
     onRedraw();
   });
 
-  // Doubleâ€‘click to delete a nearby sketch
+  // Double-click to delete a nearby sketch
   canvas.addEventListener('dblclick', (e) => {
     const pos = getPos(e);
     dragMode = null;
