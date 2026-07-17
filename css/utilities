@@ -1,0 +1,7 @@
+/* css/utilities.css */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
