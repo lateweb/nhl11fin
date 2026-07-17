@@ -3,13 +3,13 @@
 import { RosterDB } from '../../data/roster.js';
 
 /* ========================================================
-   Reusable customâ€‘select HTML generator (true combobox)
+   Reusable custom‑select HTML generator (true combobox)
    ======================================================== */
 
-export function createCustomSelectHTML({ players, selectedPlayerName, placeholder = 'Valitse pelaajaâ€¦' } = {}) {
+export function createCustomSelectHTML({ players, selectedPlayerName, placeholder = 'Valitse pelaaja…' } = {}) {
   const groups =[
     {
-      label: 'HyÃ¶kkÃ¤Ã¤jÃ¤t',
+      label: 'Hyökkääjät',
       players: players.filter(p => p.pos === 'F').sort((a, b) => a.number - b.number)
     },
     {
@@ -54,7 +54,7 @@ export function createCustomSelectHTML({ players, selectedPlayerName, placeholde
           aria-autocomplete="list"
           aria-controls="ss-listbox"
         />
-        <span class="ss-clear" aria-label="TyhjennÃ¤ valinta" role="button" tabindex="0">&times;</span>
+        <span class="ss-clear" aria-label="Tyhjennä valinta" role="button" tabindex="0">&times;</span>
       </div>
       <div class="ss-dropdown hidden" id="ss-listbox" role="listbox">
         <div class="ss-options-container">${dropdownItems}</div>
@@ -144,7 +144,7 @@ export function initCustomSelect(rootElement, onChipClick) {
     onChipClick(null);
   };
 
-  // â”€â”€ Input events â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // –– Input events ––––––––––––––––––––––––––––––––––
   input.addEventListener('focus', () => {
     if (!isDropdownOpen) openDropdown();
   });
@@ -156,7 +156,7 @@ export function initCustomSelect(rootElement, onChipClick) {
 
   input.addEventListener('click', (e) => {
     e.stopPropagation();
-    // If a selection is active, clicking the field acts like the Ã— button
+    // If a selection is active, clicking the field acts like the × button
     if (input.value.trim() !== '') {
       clearSelection();
       return;
@@ -165,7 +165,7 @@ export function initCustomSelect(rootElement, onChipClick) {
     if (!isDropdownOpen) openDropdown();
   });
 
-  // â”€â”€ Clear button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // –– Clear button –––––––––––––––––––––––––––––––––
   clearBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     clearSelection();
@@ -179,7 +179,7 @@ export function initCustomSelect(rootElement, onChipClick) {
     }
   });
 
-  // â”€â”€ Option selection â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // –– Option selection –––––––––––––––––––––––––––––
   // Use mousedown to prevent input blur from closing dropdown before click registers
   optionsContainer.addEventListener('mousedown', (e) => {
     e.preventDefault();  // prevent blur on input
@@ -187,14 +187,14 @@ export function initCustomSelect(rootElement, onChipClick) {
     if (opt) selectOption(opt);
   });
 
-  // â”€â”€ Close dropdown on outside click â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // –– Close dropdown on outside click –––––––––––––
   document.addEventListener('mousedown', (e) => {
     if (!rootElement.contains(e.target)) {
       closeDropdown();
     }
   });
 
-  // â”€â”€ Trap scroll â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // –– Trap scroll ––––––––––––––––––––––––––––––––––
   trapScroll(dropdown);
 }
 
@@ -204,7 +204,7 @@ export function initCustomSelect(rootElement, onChipClick) {
 export function renderPlayerChips() {
   return createCustomSelectHTML({
     players: RosterDB,
-    placeholder: 'Valitse pelaajaâ€¦'
+    placeholder: 'Valitse pelaaja…'
   });
 }
 
