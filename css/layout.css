@@ -1,0 +1,97 @@
+/* css/layout.css */
+
+.results {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.glory-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.section-main-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-border-strong);
+  font-weight: 700;
+  text-align: center;
+}
+
+.glory-section.pp .section-main-title {
+  color: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+}
+
+.glory-section.pk .section-main-title {
+  color: var(--color-accent-cyan);
+  border-color: var(--color-accent-cyan);
+}
+
+/* Layout Headers for Main & Visa */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.main-title {
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.lineup-container {
+  min-width: 200px;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.nav-btn {
+  text-decoration: none;
+  font-weight: 600;
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid;
+  background-color: var(--color-bg-tertiary);
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-board {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-default);
+}
+
+.btn-board:hover {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-text-muted);
+}
+
+.btn-quiz {
+  color: var(--color-accent-cyan);
+  border-color: var(--color-accent-cyan);
+}
+
+.btn-quiz:hover {
+  background-color: var(--color-accent-cyan);
+  color: var(--color-bg-primary);
+}
