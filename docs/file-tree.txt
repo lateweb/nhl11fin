@@ -1,1 +1,47 @@
-d
+project-root/
+├── index.html
+├── visa.html
+├── taulu.html
+├── main.js
+├── data/
+│   └── roster.js
+├── utils/
+│   └── rosterUtils.js
+├── board/
+│   ├── drawRink.js
+│   ├── events.js
+│   ├── main.js
+│   ├── positions.js
+│   ├── state.js
+│   └── ui.js
+├── dom/
+│   ├── rosterRenderer.js
+│   ├── components/
+│   │   ├── playerCard.js
+│   │   ├── lineupRow.js
+│   │   ├── playerChip.js
+│   │   └── gloryView.js
+│   └── utils/
+│       └── domHelpers.js
+├── game/
+│   ├── visaGame.js
+│   ├── state.js
+│   ├── utils.js
+│   ├── history.js
+│   ├── questions.js
+│   └── render.js
+├── css/
+│   ├── base.css
+│   ├── layout.css
+│   ├── utilities.css
+│   ├── responsive.css
+│   ├── visa.css
+│   ├── taulu.css
+│   └── components/
+│       ├── player-selection.css
+│       ├── player-card.css
+│       ├── lineup.css
+│       ├── glory-view.css
+│       └── jersey.css
+└── docs/
+    └── file-tree.txt
