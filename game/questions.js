@@ -18,10 +18,10 @@ import {
   isQuestionRecentlyUsed 
 } from './history.js';
 
-// Helper strictly for the quiz to display long form names (e.g., H1 -> HyÃ¶kkÃ¤ys 1)
+// Helper strictly for the quiz to display long form names (e.g., H1 -> Hyökkäys 1)
 function getQuizDisplayName(internalName) {
   if (!internalName) return '';
-  if (internalName.match(/^H(\d+)$/)) return `HyÃ¶kkÃ¤ys ${RegExp.$1}`;
+  if (internalName.match(/^H(\d+)$/)) return `Hyökkäys ${RegExp.$1}`;
   if (internalName.match(/^P(\d+)$/)) return `Puolustus ${RegExp.$1}`;
   
   const quizMappings = {
@@ -42,7 +42,7 @@ function getQuizDisplayName(internalName) {
 const ALL_LINE_NAMES = Array.from(new Set([
   ...lineups.even
     .map(l => l.name)
-    .filter(name => name !== 'VarahyÃ¶kkÃ¤Ã¤jÃ¤t' && name !== 'Varapuolustajat')
+    .filter(name => name !== 'Varahyökkääjät' && name !== 'Varapuolustajat')
     .map(getQuizDisplayName),
   'Ylivoima 1',
   'Ylivoima 2',
@@ -65,7 +65,7 @@ function generateNumberQuestion() {
   
   return {
     type: 'number',
-    question: `MikÃ¤ on pelaajan <strong>${player.name}</strong> pelinumero?`,
+    question: `Mikä on pelaajan <strong>${player.name}</strong> pelinumero?`,
     options,
     correct,
     playerName: player.name
@@ -154,7 +154,7 @@ function generateLineQuestion() {
   
   return {
     type: 'line',
-    question: `MissÃ¤ ketjussa <strong>${player.name}</strong> pelaa?`,
+    question: `Missä ketjussa <strong>${player.name}</strong> pelaa?`,
     options,
     correct,
     playerName: player.name
@@ -191,7 +191,7 @@ function generateOddOneQuestion() {
   } else if (prop === 'position') {
     // Only two positive questions (no duplication)
     const posQuestions =[
-      { text: 'Kuka seuraavista on hyÃ¶kkÃ¤Ã¤jÃ¤?', oddPos: 'F', askForHas: true },
+      { text: 'Kuka seuraavista on hyökkääjä?', oddPos: 'F', askForHas: true },
       { text: 'Kuka seuraavista on puolustaja?', oddPos: 'D', askForHas: true }
     ];
     const selected = posQuestions[Math.floor(Math.random() * posQuestions.length)];
