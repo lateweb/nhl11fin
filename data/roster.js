@@ -3,13 +3,13 @@
 // Exports maintain the original public API: customRosters, RosterDB, activeRosterName, switchRoster, lineups, posMap
 
 // ===========================================================================
-// 1. MASTER PLAYER LIST (single source of truth â€“ no roles here)
+// 1. MASTER PLAYER LIST (single source of truth – no roles here)
 // ===========================================================================
 const playersMaster = [
   // FORWARDS
   { number: 26, name: "Lehtinen",         pos: "F", shoots: "R", ovr: 81 },
   { number: 11, name: "S. Koivu",         pos: "F", letter: "C", shoots: "L", ovr: 82 },
-  { number: 8,  name: "SelÃ¤nne",          pos: "F", letter: "A", shoots: "R", ovr: 82 },
+  { number: 8,  name: "Selänne",          pos: "F", letter: "A", shoots: "R", ovr: 82 },
   { number: 36, name: "J. Jokinen",       pos: "F", shoots: "L", ovr: 82 },
   { number: 9,  name: "M. Koivu",         pos: "F", shoots: "L", ovr: 87 },
   { number: 51, name: "Filppula",         pos: "F", shoots: "L", ovr: 82 },
@@ -24,16 +24,16 @@ const playersMaster = [
   // DEFENSEMEN
   { number: 44, name: "Timonen",          pos: "D", letter: "A", shoots: "L", ovr: 83 },
   { number: 6,  name: "Salo",             pos: "D", shoots: "R", ovr: 80 },
-  { number: 25, name: "PitkÃ¤nen",         pos: "D", shoots: "L", ovr: 81 },
+  { number: 25, name: "Pitkänen",         pos: "D", shoots: "L", ovr: 81 },
   { number: 32, name: "Lydman",           pos: "D", shoots: "L", ovr: 79 },
-  { number: 18, name: "LepistÃ¶",          pos: "D", shoots: "L", ovr: 78 },
+  { number: 18, name: "Lepistö",          pos: "D", shoots: "L", ovr: 78 },
   { number: 3,  name: "Nummelin",         pos: "D", shoots: "L", ovr: 78 },
-  { number: 4,  name: "VÃ¤Ã¤nÃ¤nen",         pos: "D", shoots: "L", ovr: 77 },
+  { number: 4,  name: "Väänänen",         pos: "D", shoots: "L", ovr: 77 },
   { number: 29, name: "Salmela",          pos: "D", shoots: "L", ovr: 76 },
   // GOALTENDERS
   { number: 34, name: "Kiprusoff",        pos: "G", shoots: "L", ovr: 89 },
   { number: 40, name: "Rask",             pos: "G", shoots: "L", ovr: 84 },
-  { number: 30, name: "NiittymÃ¤ki",       pos: "G", shoots: "L", ovr: 82 }
+  { number: 30, name: "Niittymäki",       pos: "G", shoots: "L", ovr: 82 }
 ];
 
 // ===========================================================================
@@ -111,7 +111,7 @@ export const customRosters = {
 // The live database used by the app (mutable array reference preserved)
 export const RosterDB = [];
 
-// Active roster name â€“ default is "Olympiahybridi"
+// Active roster name – default is "Olympiahybridi"
 export let activeRosterName = "Olympiahybridi";
 
 /**
@@ -170,7 +170,7 @@ function initFromSession() {
     if (saved && customRosters[saved]) {
       switchRoster(saved);
     } else {
-      // No saved roster â€“ build the default (Olympiahybridi)
+      // No saved roster – build the default (Olympiahybridi)
       switchRoster(activeRosterName);
     }
   } catch (e) {
@@ -194,7 +194,7 @@ export const lineups = {
     { name: "P1", d: ["ld1", "rd1"] },
     { name: "P2", d: ["ld2", "rd2"] },
     { name: "P3", d: ["ld3", "rd3"] },
-    { name: "VarahyÃ¶kkÃ¤Ã¤jÃ¤t",  f: ["f_res1", "f_res2"] },
+    { name: "Varahyökkääjät",  f: ["f_res1", "f_res2"] },
     { name: "Varapuolustajat", d: ["d_res1", "d_res2"] }
   ],
   pp: [
