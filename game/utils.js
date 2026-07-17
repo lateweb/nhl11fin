@@ -58,7 +58,7 @@ export function playerPlaysPK(playerName) {
 }
 
 export function getPositionLabel(posCode) {
-  const map = { F: 'HyÃ¶kkÃ¤Ã¤jÃ¤', D: 'Puolustaja', G: 'Maalivahti' };
+  const map = { F: 'Hyökkääjä', D: 'Puolustaja', G: 'Maalivahti' };
   return map[posCode] || posCode;
 }
 
