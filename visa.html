@@ -1,1 +1,39 @@
-d
+<!-- visa.html -->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NHL 11 – Suomivisa</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components/player-selection.css">
+  <link rel="stylesheet" href="css/visa.css">
+</head>
+<body>
+  <div class="container">
+    <header class="main-header">
+      <h1 class="main-title">NHL 11 – Suomivisa</h1>
+      <a href="index.html" class="back-link">← Takaisin kokoonpanoon</a>
+    </header>
+
+    <div id="quizArea" class="quiz-area">
+      <div class="question-container">
+        <div class="question-text"></div>
+      </div>
+    </div>
+
+    <div class="score-row">
+      <div id="scoreDisplay" class="score-display">0 / 0</div>
+    </div>
+
+    <div class="timer-bar">
+      <div id="timerBarFill" class="timer-bar-fill"></div>
+    </div>
+  </div>
+
+  <script type="module" src="data/roster.js"></script>
+  <script type="module" src="utils/rosterUtils.js"></script>
+  <script type="module" src="game/visaGame.js"></script>
+</body>
+</html>
