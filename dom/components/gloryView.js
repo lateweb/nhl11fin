@@ -11,7 +11,7 @@ export function renderGloryView() {
   return `
     <div class="glory-container">
       <div class="glory-section even">
-        <h2 class="section-main-title">KentÃ¤lliset</h2>
+        <h2 class="section-main-title">Kentälliset</h2>
         <div class="lineup-stack">
           ${actualAttack.map(line => `
             <div class="lineup-block">
@@ -27,7 +27,7 @@ export function renderGloryView() {
       </div>
 
       <div class="glory-section pp">
-        <h2 class="section-main-title">Ylivoima ðŸ”¥</h2>
+        <h2 class="section-main-title">Ylivoima 🔥</h2>
         <div class="lineup-stack">
           ${lineups.pp.map(line => {
             const allRoles = [...(line.f || []), ...(line.d || [])];
@@ -43,7 +43,7 @@ export function renderGloryView() {
       </div>
 
       <div class="glory-section pk">
-        <h2 class="section-main-title">Alivoima ðŸ§Š</h2>
+        <h2 class="section-main-title">Alivoima 🧊</h2>
         <div class="lineup-stack">
           ${lineups.pk.map(line => `
             <div class="lineup-block">
