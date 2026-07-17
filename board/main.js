@@ -139,9 +139,11 @@ export function redraw() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const savedRoster = sessionStorage?.getItem('activeRosterName') || 'In MM12 We Trust';
+  const savedRoster = sessionStorage?.getItem('activeRosterName') || null;
   import('../data/roster.js').then(mod => {
-    mod.switchRoster(savedRoster);
+    // Validate that the saved name exists, otherwise use the module's default
+    const rosterName = (savedRoster && mod.customRosters[savedRoster]) ? savedRoster : mod.activeRosterName;
+    mod.switchRoster(rosterName);
     buildComboDropdown();
     initRosterSelector();
     placeUnitsOnRink();
