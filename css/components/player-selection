@@ -1,0 +1,163 @@
+/* css/components/player-selection.css */
+
+.player-list {
+  margin-bottom: var(--space-10);
+}
+
+/* Container */
+.searchable-select {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* â”€â”€ Trigger button (used only by lineup selector) â”€â”€ */
+.ss-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  background-color: var(--color-bg-tertiary);
+  border: 2px solid var(--color-border-default);
+  border-radius: 0;
+  font-size: 15px;
+  color: var(--color-text-disabled);
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+  gap: 8px;
+}
+
+.ss-trigger:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+.ss-trigger:focus {
+  border-color: var(--color-accent-blue);
+}
+
+.ss-trigger-text {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* â”€â”€ Combobox input (replaces the button for player selection) â”€â”€ */
+.ss-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ss-trigger-input {
+  flex: 1 1 auto;
+  width: 100%;
+  padding: 10px 14px;
+  background-color: var(--color-bg-tertiary);
+  border: 2px solid var(--color-border-default);
+  border-radius: 0;
+  font-size: 15px;
+  color: var(--color-text-disabled);
+  outline: none;
+  transition: border-color 0.15s;
+  font-family: inherit;
+}
+
+.ss-trigger-input::placeholder {
+  color: var(--color-text-disabled);
+}
+
+.ss-trigger-input:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+.ss-trigger-input:focus {
+  border-color: var(--color-accent-blue);
+  color: var(--color-text-secondary);
+}
+
+/* When there's a selection, weâ€™ll style the input similarly to the old .has-selection */
+.ss-trigger-input.has-selection {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+/* â”€â”€ Clear button â”€â”€ */
+.ss-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--color-text-disabled);
+  background: none;
+  border: none;
+  padding: 0 2px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.ss-clear:hover {
+  color: var(--color-text-secondary);
+}
+
+/* Show clear button when the input has a value */
+.ss-input-wrapper .ss-trigger-input:not(:placeholder-shown) ~ .ss-clear {
+  display: inline-block;
+}
+
+/* â”€â”€ Dropdown list â”€â”€ */
+.ss-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  background-color: var(--color-bg-tertiary);
+  border: 2px solid var(--color-border-default);
+  border-top: none;
+  z-index: 10;
+}
+
+.ss-dropdown.hidden {
+  display: none;
+}
+
+/* â”€â”€ Group headers â”€â”€ */
+.ss-group-label {
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-text-disabled);
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border-strong);
+  pointer-events: none;
+  user-select: none;
+}
+
+.ss-group-label:first-of-type {
+  border-top: none;
+}
+
+/* â”€â”€ Clickable options â”€â”€ */
+.ss-option {
+  padding: 8px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.ss-option:hover,
+.ss-option:focus {
+  background-color: var(--color-accent-blue);
+  color: var(--color-text-primary);
+}
