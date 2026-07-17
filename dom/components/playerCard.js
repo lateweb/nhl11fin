@@ -43,7 +43,7 @@ export function createPlayerCard(player) {
                 : `${svgLeft}<span class="clipboard-only">_/ </span>Left`}
             </div>
           </div>` : ''}
-          ${secondary.length > 0 ? `<div class="secondary-roles-expanded"><div class="lisÃ¤ksi-label">LisÃ¤ksi:</div>${secondary.map(s => `<div class="sec-role-item-large">${s.line}</div>`).join('')}</div>` : ''}
+          ${secondary.length > 0 ? `<div class="secondary-roles-expanded"><div class="lisäksi-label">Lisäksi:</div>${secondary.map(s => `<div class="sec-role-item-large">${s.line}</div>`).join('')}</div>` : ''}
         </div>
       </div>`;
 
@@ -66,7 +66,7 @@ export function createPlayerCard(player) {
           </div>`;
       }).join('');
       if (!linesHtml) return '';
-      const titles = { even: '', pp: 'Ylivoima ðŸ”¥', pk: 'Alivoima ðŸ§Š' };
+      const titles = { even: '', pp: 'Ylivoima 🔥', pk: 'Alivoima 🧊' };
       return `<div class="lineup-section ${cat}">${titles[cat] ? `<h3>${titles[cat]}</h3>` : ''}<div class="lineup-grid">${linesHtml}</div></div>`;
     }).join('');
   }
