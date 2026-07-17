@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NHL 11 – Suomen kokoonpano</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components/jersey.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components/player-selection.css">
+  <link rel="stylesheet" href="css/components/player-card.css">
+  <link rel="stylesheet" href="css/components/lineup.css">
+  <link rel="stylesheet" href="css/components/glory-view.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="container">
+    <header class="main-header">
+      <h1 class="main-title">NHL 11 – Suomen kokoonpano</h1>
+      <div class="header-controls">
+        <div id="lineupSelectorContainer" class="lineup-container"></div>
+        <div class="nav-links">
+          <a href="taulu.html" class="nav-btn btn-board">Taktiikkataulu</a>
+          <a href="visa.html" class="nav-btn btn-quiz">Testaa tietosi</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="player-list" id="playerList"></div>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
