@@ -2,11 +2,11 @@
 
 /**
  * Shared state for the whiteboard.
- * `placedPlayers` â€“ array of { player, x, y, stickAngle }
- * `placedOpponents` â€“ array of { x, y }
- * `sketches` â€“ array of sketch objects { type, color, points }
- * `_currentSketch` â€“ sketch currently being drawn (private)
- * `goalPosition` â€“ 'bottom' (default) or 'top'
+ * `placedPlayers` – array of { player, x, y, stickAngle }
+ * `placedOpponents` – array of { x, y }
+ * `sketches` – array of sketch objects { type, color, points }
+ * `_currentSketch` – sketch currently being drawn (private)
+ * `goalPosition` – 'bottom' (default) or 'top'
  */
 
 export const placedPlayers = [];
@@ -44,7 +44,7 @@ export function undoLastSketch() {
   }
 }
 
-/* â€“â€“â€“ Drawing helpers â€“â€“â€“ */
+/* ––– Drawing helpers ––– */
 export function startPath(point) {
   _currentSketch = {
     type: drawShape,
