@@ -5,10 +5,10 @@ import { initEvents } from './events.js';
 import {
   attachActionButtons,
   buildComboDropdown,
-  initRosterSelector,
   placeUnitsOnRink,
   placeOpponents
 } from './ui.js';
+import { switchRoster } from '../data/roster.js';
 
 const canvas = document.getElementById('whiteboardCanvas');
 const ctx = canvas.getContext('2d');
@@ -139,17 +139,12 @@ export function redraw() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const savedRoster = sessionStorage?.getItem('activeRosterName') || null;
-  import('../data/roster.js').then(mod => {
-    // Validate that the saved name exists, otherwise use the module's default
-    const rosterName = (savedRoster && mod.customRosters[savedRoster]) ? savedRoster : mod.activeRosterName;
-    mod.switchRoster(rosterName);
-    buildComboDropdown();
-    initRosterSelector();
-    placeUnitsOnRink();
-    placeOpponents();
-    redraw();
-  });
+  // Always use the default Olympiahybridi roster
+  switchRoster('Olympiahybridi');
+  buildComboDropdown();
+  placeUnitsOnRink();
+  placeOpponents();
+  redraw();
 
   attachActionButtons();
   initEvents(canvas, redraw);

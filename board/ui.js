@@ -1,5 +1,5 @@
 // board/ui.js
-import { switchRoster, customRosters, activeRosterName, lineups } from '../data/roster.js';
+import { switchRoster, lineups } from '../data/roster.js';
 import { findPlayerInRole } from '../utils/rosterUtils.js';
 import { placedPlayers, placedOpponents, opponentCount, setOpponentCount, sketches, resetAll, clearDrawings, undoLastSketch, goalPosition, setGoalPosition, setDrawColor, setDrawShape, setForceDrawMode } from './state.js';
 import { getRolePosition } from './positions.js';
@@ -82,31 +82,6 @@ function placeSelectedCombo() {
     }
   });
   redraw();
-}
-
-export function initRosterSelector() {
-  const container = document.getElementById('rosterSelectorContainer');
-  if (!container) return;
-
-  const select = document.createElement('select');
-  select.id = 'rosterSelect';
-  select.style.width = '100%';
-  const rosterNames = Object.keys(customRosters);
-  rosterNames.forEach(name => {
-    const opt = document.createElement('option');
-    opt.value = name;
-    opt.textContent = name;
-    if (name === activeRosterName) opt.selected = true;
-    select.appendChild(opt);
-  });
-
-  container.innerHTML = '';
-  container.appendChild(select);
-
-  select.addEventListener('change', (e) => {
-    switchRoster(e.target.value);
-    placeSelectedCombo();
-  });
 }
 
 export function placeOpponents() {

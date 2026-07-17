@@ -1,6 +1,6 @@
 // data/roster.js
 // Refactored roster module using lazy roster building (assignments -> buildRoster on demand).
-// Exports maintain the original public API: customRosters, RosterDB, activeRosterName, switchRoster, lineups, posMap
+// Exports maintain the original public API: RosterDB, activeRosterName, switchRoster, lineups, posMap
 
 // ===========================================================================
 // 1. MASTER PLAYER LIST (single source of truth – no roles here)
@@ -96,22 +96,13 @@ function buildRoster(assignments = {}) {
 }
 
 // ===========================================================================
-// 4. PUBLIC API (lazy building of rosters from assignment maps)
+// 4. PUBLIC API
 // ===========================================================================
-
-/**
- * customRosters
- * - stores assignment maps (not pre-built rosters)
- * - switchRoster will build the roster on demand
- */
-export const customRosters = {
-  "Olympiahybridi": hybridAssignments,
-};
 
 // The live database used by the app (mutable array reference preserved)
 export const RosterDB = [];
 
-// Active roster name – default is "Olympiahybridi"
+// Active roster name – always "Olympiahybridi"
 export let activeRosterName = "Olympiahybridi";
 
 /**
@@ -125,27 +116,16 @@ function deepCopy(value) {
 /**
  * switchRoster(name)
  * - builds the roster from the assignment map and replaces RosterDB contents in-place
- * - saves active roster name to sessionStorage when available
  */
 export function switchRoster(name) {
-  const assignments = customRosters[name];
-  if (!assignments) return;
-
-  const roster = buildRoster(assignments);
+  // Always use hybridAssignments (Olympiahybridi)
+  const roster = buildRoster(hybridAssignments);
   // deep copy to ensure RosterDB is independent
   const copy = deepCopy(roster);
 
   // preserve array reference
   RosterDB.splice(0, RosterDB.length, ...copy);
-  activeRosterName = name;
-
-  if (typeof sessionStorage !== 'undefined') {
-    try {
-      sessionStorage.setItem('activeRosterName', name);
-    } catch (e) {
-      // ignore sessionStorage errors (e.g., private mode)
-    }
-  }
+  activeRosterName = "Olympiahybridi";
 }
 
 /**
@@ -153,30 +133,16 @@ export function switchRoster(name) {
  * - convenience: returns a built roster (deep copy) for read-only use
  */
 export function getRoster(name) {
-  const assignments = customRosters[name];
-  if (!assignments) return null;
-  return deepCopy(buildRoster(assignments));
+  return deepCopy(buildRoster(hybridAssignments));
 }
 
 /**
  * initFromSession()
- * - optional helper to initialize RosterDB from sessionStorage on import
- * - called automatically if a saved roster name exists
+ * - optional helper to initialize RosterDB on import
  */
 function initFromSession() {
-  if (typeof sessionStorage === 'undefined') return;
-  try {
-    const saved = sessionStorage.getItem('activeRosterName');
-    if (saved && customRosters[saved]) {
-      switchRoster(saved);
-    } else {
-      // No saved roster – build the default (Olympiahybridi)
-      switchRoster(activeRosterName);
-    }
-  } catch (e) {
-    // Fallback: build default even if sessionStorage fails
-    switchRoster(activeRosterName);
-  }
+  // Always initialize with the default (Olympiahybridi)
+  switchRoster(activeRosterName);
 }
 
 // Try to initialize from sessionStorage (safe no-op if unavailable)
