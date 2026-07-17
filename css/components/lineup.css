@@ -1,0 +1,116 @@
+/* css/components/lineup.css */
+
+.lineup-section {
+  margin-bottom: var(--space-10);
+}
+
+.lineup-section h3 {
+  font-size: 18px;
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-border-strong);
+  padding-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.lineup-section.even h3 {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-default);
+}
+
+.lineup-section.pp h3 {
+  color: var(--color-accent-red);
+  border-color: #7f1d1d;
+}
+
+.lineup-section.pk h3 {
+  color: var(--color-accent-cyan);
+  border-color: #0284c7;
+}
+
+.lineup-section.goalies h3 {
+  color: var(--color-text-muted);
+  border-color: var(--color-border-strong);
+}
+
+.lineup-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+.player-card .lineup-grid {
+  grid-template-columns: 1fr;
+}
+
+.lineup-block {
+  background-color: var(--color-bg-secondary);
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-none);
+  overflow: hidden;
+}
+
+.lineup-header {
+  background-color: var(--color-bg-primary);
+  padding: 12px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid var(--color-border-strong);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.formation {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  overflow-x: auto;
+}
+
+/* Row containers - never wrap, keep formation shape */
+.row-3, .row-2, .row-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  flex-wrap: nowrap !important;
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  flex: 0 0 auto;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.slot.empty {
+  opacity: 0.4;
+}
+
+/* Highlight effect â€“ refined elegance */
+.slot.highlight {
+  background-color: rgba(30, 64, 175, 0.75);   /* deeper, richer blue */
+  border: 2px solid var(--color-highlight-border);
+  box-shadow: 0 0 14px rgba(96, 165, 250, 0.35);
+  border-radius: var(--radius-sm);
+}
+
+/* Player position below jersey - notable */
+.player-pos {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
