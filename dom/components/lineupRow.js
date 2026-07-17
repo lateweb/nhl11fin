@@ -7,8 +7,8 @@ export function createRow(roles, highlightPlayerName) {
   if (!roles || roles.length === 0) return '';
   const slots = roles.map(role => {
     const player = findPlayerInRole(role);
-    const number = player ? player.number : 'â€”';
-    const jerseyName = player ? getJerseyName(player.name) : 'â€”';
+    const number = player ? player.number : '—';
+    const jerseyName = player ? getJerseyName(player.name) : '—';
     const pos = getFinnishPosLabel(role);
     const highlightClass = highlightPlayerName && isPlayerInRole(highlightPlayerName, role) ? 'highlight' : '';
     const emptyClass = !player ? 'empty' : '';
@@ -23,10 +23,10 @@ export function createRow(roles, highlightPlayerName) {
 }
 
 /**
- * Creates the 1â€‘3â€‘1 HTML for a power play unit.
- * Rows (topâ€‘toâ€‘bottom) when attacking the top goal:
- *   Top row:    LW (netâ€‘front)
- *   Middle row: LD, C, RW (shooters, in that leftâ€‘toâ€‘right order)
+ * Creates the 1‑3‑1 HTML for a power play unit.
+ * Rows (top‑to‑bottom) when attacking the top goal:
+ *   Top row:    LW (net‑front)
+ *   Middle row: LD, C, RW (shooters, in that left‑to‑right order)
  *   Bottom row: RD (quarterback)
  */
 export function createPPRow(roles, highlightPlayerName) {
@@ -48,7 +48,7 @@ export function createPPRow(roles, highlightPlayerName) {
     }
   }
 
-  // Explicitly order the middle row leftâ€‘toâ€‘right: LD, C, RW
+  // Explicitly order the middle row left‑to‑right: LD, C, RW
   const orderMap = { ld: 0, c: 1, rw: 2 };
   slotRoles.sort((a, b) => {
     const baseA = a.split('_')[0];
