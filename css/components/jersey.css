@@ -1,0 +1,52 @@
+/* css/components/jersey.css */
+
+.player-card-jersey-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.player-card-jersey {
+  position: relative;
+  width: var(--jersey-width);
+  height: var(--jersey-height);
+  background-color: var(--jersey-bg);
+  border-radius: clamp(8px, 1.2vw, 12px) clamp(8px, 1.2vw, 12px) clamp(4px, 0.6vw, 6px) clamp(4px, 0.6vw, 6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: var(--jersey-shadow);
+  padding: clamp(8px, 1.2vw, 12px) clamp(4px, 0.6vw, 6px);
+}
+
+.player-card-jersey::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: clamp(28px, 4.5vw, 45px);
+  height: clamp(14px, 2.5vw, 20px);
+  background-color: var(--jersey-primary);
+  border-radius: 0 0 clamp(14px, 2.5vw, 18px) clamp(14px, 2.5vw, 18px);
+}
+
+.player-card-jersey .jersey-name {
+  font-size: var(--jersey-name-size);
+  font-weight: 700;
+  color: var(--jersey-primary);
+  text-transform: uppercase;
+  margin-top: clamp(10px, 1.8vw, 16px);
+  margin-bottom: 2px;
+  text-align: center;
+  letter-spacing: var(--jersey-name-letter-spacing);
+  white-space: nowrap;
+}
+
+.player-card-jersey .jersey-number {
+  font-size: var(--jersey-number-size);
+  font-weight: 800;
+  color: var(--jersey-primary);
+  line-height: 1;
+  text-shadow: var(--jersey-number-text-shadow);
+  margin-top: -2px;
+}
