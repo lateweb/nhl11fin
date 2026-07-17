@@ -1,0 +1,70 @@
+/* css/responsive.css */
+
+/* Mobile adjustments for small screens */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .row-3, .row-2, .row-1 {
+    gap: 4px;
+    justify-content: center;
+  }
+
+  .slot {
+    padding: 4px 3px;
+    flex: 0 0 auto;
+  }
+
+  /* Jersey dimension overrides REMOVED to allow original clamp() fluid scaling */
+
+  .player-pos {
+    font-size: 11px;
+  }
+
+  .formation {
+    padding: 8px 6px;
+  }
+
+  .lineup-header {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .lineup-section h3 {
+    font-size: 16px;
+  }
+}
+
+/* Very small screens (iPhone SE, etc.) */
+@media (max-width: 360px) {
+  .player-pos {
+    font-size: 10px;
+  }
+
+  .row-3, .row-2, .row-1 {
+    gap: 3px;
+  }
+}
+
+/* Tablet screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  .player-pos {
+    font-size: 13px;
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1400px) {
+  .player-pos {
+    font-size: 17px;
+  }
+
+  .lineup-header {
+    font-size: 16px;
+  }
+
+  .lineup-section h3 {
+    font-size: 20px;
+  }
+}
