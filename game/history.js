@@ -10,7 +10,7 @@ import { getRandomPlayer } from './utils.js';
    - Full reset on "Play again" so every new game feels fresh
    ============================================= */
 
-// Active question types only (pp/pk removed â€” they have no generator functions)
+// Active question types only (pp/pk removed — they have no generator functions)
 const ALL_QUESTION_TYPES = [
   'number',
   'name',
@@ -19,7 +19,7 @@ const ALL_QUESTION_TYPES = [
   'shoots'
 ];
 
-// Dynamic max = total types - 1 â†’ after 4 different types the 5th is forced
+// Dynamic max = total types - 1 → after 4 different types the 5th is forced
 // This creates natural round-robin rotation without feeling robotic
 const MAX_PLAYER_HISTORY   = 3;   // avoid same player in ~4 questions
 const MAX_TYPE_HISTORY     = ALL_QUESTION_TYPES.length - 1; // = 4
@@ -74,7 +74,7 @@ export function getPlayerAvoidingRecent(options = {}, attempts = 10) {
  * Gold-standard type selector:
  * 1. Prefer any type that hasn't been used recently
  * 2. When all types have been used (only happens after 5 questions), pick randomly
- * With MAX_TYPE_HISTORY = 4 and 5 types â†’ the quiz naturally cycles through every type
+ * With MAX_TYPE_HISTORY = 4 and 5 types → the quiz naturally cycles through every type
  */
 export function getQuestionTypeAvoidingRecent() {
   const available = ALL_QUESTION_TYPES.filter(t => !recentTypes.includes(t));
@@ -88,8 +88,8 @@ export function getQuestionTypeAvoidingRecent() {
 }
 
 /**
- * Full reset â€” call this every time the player clicks "Pelaa uudelleen"
- * Without this, second game would remember players/types from first game â†’ feels stale
+ * Full reset — call this every time the player clicks "Pelaa uudelleen"
+ * Without this, second game would remember players/types from first game → feels stale
  */
 export function resetAllHistory() {
   recentPlayers.length     = 0;
