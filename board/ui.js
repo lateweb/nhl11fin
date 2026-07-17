@@ -5,7 +5,7 @@ import { placedPlayers, placedOpponents, opponentCount, setOpponentCount, sketch
 import { getRolePosition } from './positions.js';
 import { redraw } from './main.js';
 
-/* â€“â€“â€“ Helper: map combo name â†’ array of role keys â€“â€“â€“ */
+/* ––– Helper: map combo name → array of role keys ––– */
 function getRolesForCombo(comboName) {
   const evenMatch = comboName.match(/^H(\d+)\+P(\d+)$/);
   if (evenMatch) {
@@ -23,7 +23,7 @@ function getRolesForCombo(comboName) {
   return [];
 }
 
-/* â€“â€“â€“ Build the combo dropdown â€“â€“â€“ */
+/* ––– Build the combo dropdown ––– */
 export function buildComboDropdown() {
   const select = document.getElementById('comboSelect');
   if (!select) return;
@@ -58,7 +58,7 @@ export function buildComboDropdown() {
   select.addEventListener('change', placeSelectedCombo);
 }
 
-/* â€“â€“â€“ Place the selected combo on the rink â€“â€“â€“ */
+/* ––– Place the selected combo on the rink ––– */
 function placeSelectedCombo() {
   const select = document.getElementById('comboSelect');
   if (!select) return;
