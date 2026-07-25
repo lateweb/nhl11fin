@@ -97,13 +97,13 @@ export function renderQuestion() {
   }
 
   const q = state.currentQuestion;
-  // Add number prefixes (1., 2., 3., 4.) with gray styling
+  // Use classes for number and text to enable clean left‑aligned layout
   const optionsHtml = `
     <div class="options-grid">
       ${q.options.map((opt, index) => `
         <button class="option-btn" data-value="${opt}" data-index="${index}">
-          <span style="color:#94a3b8; margin-right:12px; font-weight:400;">${index + 1}.</span>
-          ${opt}
+          <span class="option-number">${index + 1}.</span>
+          <span class="option-text">${opt}</span>
         </button>
       `).join('')}
     </div>
@@ -116,7 +116,6 @@ export function renderQuestion() {
     ${optionsHtml}
   `;
 
-  // Remove any old keyboard listener to avoid duplicates
   document.removeEventListener('keydown', handleKeyDown);
   document.addEventListener('keydown', handleKeyDown);
 
@@ -126,7 +125,6 @@ export function renderQuestion() {
   state.answerLocked = false;
 }
 
-// Keyboard handler: keys 1-4 map to options 0-3
 function handleKeyDown(e) {
   if (state.answerLocked || timeLeft <= 0) return;
   const key = e.key;
