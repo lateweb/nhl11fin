@@ -1,7 +1,7 @@
 // dom/components/gloryView.js
 
 import { lineups } from '../../data/roster.js';
-import { createRow, createPPRow, createGoalieRow } from './lineupRow.js';
+import { createRow, createGoalieRow } from './lineupRow.js';
 
 export function renderGloryView() {
   const actualAttack = lineups.even.filter(item => item.f && !item.name.includes("Vara"));
@@ -35,7 +35,7 @@ export function renderGloryView() {
               <div class="lineup-block">
                 <div class="lineup-header">${line.name}</div>
                 <div class="formation">
-                  ${createPPRow(allRoles, null)}
+                  ${createRow(allRoles, null)}
                 </div>
               </div>`;
           }).join('')}
