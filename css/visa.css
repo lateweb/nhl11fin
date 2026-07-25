@@ -40,7 +40,11 @@
 
 .options-grid .option-btn {
   width: 100%;
-  text-align: center;
+  text-align: left;            /* left‑align the entire button content */
+  display: flex;               /* flex layout for number + text */
+  align-items: center;         /* vertically center them */
+  padding: var(--space-4) var(--space-6);
+  gap: var(--space-2);         /* small gap between number and text */
 }
 
 .option-btn {
@@ -53,6 +57,20 @@
   color: var(--color-text-secondary);
   cursor: pointer;
   transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.option-btn .option-number {
+  display: inline-block;
+  min-width: 30px;          /* ensure consistent width for "1.", "2.", etc. */
+  color: var(--color-text-disabled);
+  font-weight: 400;
+  text-align: left;
+  flex-shrink: 0;           /* prevent the number from shrinking */
+}
+
+.option-btn .option-text {
+  flex: 1;                  /* takes remaining space, keeps text left‑aligned */
+  text-align: left;
 }
 
 .option-btn:hover:not(:disabled) {
