@@ -3,7 +3,7 @@
 import { lineups } from '../../data/roster.js';
 import { getPlayerLineupInfo, isGoalie, playerPlaysInLineup } from '../../utils/rosterUtils.js';
 import { getJerseyName, renderJerseyHTML } from '../utils/domHelpers.js';
-import { createRow, createPPRow, createGoalieRow } from './lineupRow.js';
+import { createRow, createGoalieRow } from './lineupRow.js';
 
 export function createPlayerCardJersey(player) {
   const jerseyName = getJerseyName(player.name);
@@ -54,11 +54,8 @@ export function createPlayerCard(player) {
       if (cat === 'goalies') return '';
       const linesHtml = lines.filter(l => playerPlaysInLineup(player.name, l)).map(l => {
         const allRoles = [...(l.f || []), ...(l.d || [])];
-        // Use PP layout only for power play units (cat === 'pp')
-        const formationHTML = cat === 'pp'
-          ? createPPRow(allRoles, player.name)
-          : `${createRow(l.f, player.name)}${createRow(l.d, player.name)}`;
-
+        // Use the same row layout for all categories (no special PP formatting)
+        const formationHTML = `${createRow(l.f, player.name)}${createRow(l.d, player.name)}`;
         return `
           <div class="lineup-block">
             <div class="lineup-header">${l.name}</div>
