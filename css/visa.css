@@ -4,7 +4,7 @@
   background-color: var(--color-bg-secondary);
   border: 2px solid var(--color-border-strong);
   border-radius: var(--radius-none);
-  padding: var(--space-2) var(--space-10) var(--space-10); 
+  padding: var(--space-2) var(--space-10) var(--space-10);
   margin: var(--space-10) 0;
   text-align: center;
 }
@@ -12,10 +12,10 @@
 .question-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
-  height: 75px; 
+  justify-content: flex-end;
+  height: 75px;
   width: 100%;
-  margin-bottom: var(--space-6); 
+  margin-bottom: var(--space-6);
 }
 
 .question-text {
@@ -24,7 +24,7 @@
   line-height: 1.4;
   color: var(--color-text-primary);
   text-align: center;
-  margin: 0; 
+  margin: 0;
   padding: 0;
 }
 
@@ -40,11 +40,7 @@
 
 .options-grid .option-btn {
   width: 100%;
-  text-align: left;            /* left‑align the entire button content */
-  display: flex;               /* flex layout for number + text */
-  align-items: center;         /* vertically center them */
-  padding: var(--space-4) var(--space-6);
-  gap: var(--space-2);         /* small gap between number and text */
+  text-align: center;
 }
 
 .option-btn {
@@ -59,20 +55,6 @@
   transition: background-color 0.15s, border-color 0.15s, color 0.15s;
 }
 
-.option-btn .option-number {
-  display: inline-block;
-  min-width: 30px;          /* ensure consistent width for "1.", "2.", etc. */
-  color: var(--color-text-disabled);
-  font-weight: 400;
-  text-align: left;
-  flex-shrink: 0;           /* prevent the number from shrinking */
-}
-
-.option-btn .option-text {
-  flex: 1;                  /* takes remaining space, keeps text left‑aligned */
-  text-align: left;
-}
-
 .option-btn:hover:not(:disabled) {
   background-color: var(--color-accent-blue);
   border-color: var(--color-accent-blue);
@@ -80,7 +62,7 @@
 }
 
 .option-btn.correct {
-  background-color: #10b981; 
+  background-color: #10b981;
   border-color: #059669;
   color: white;
 }
