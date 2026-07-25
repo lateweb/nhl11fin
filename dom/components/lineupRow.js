@@ -22,51 +22,6 @@ export function createRow(roles, highlightPlayerName) {
   return `<div class="row-${roles.length}">${slots}</div>`;
 }
 
-/**
- * Creates the 1‑3‑1 HTML for a power play unit.
- * Rows (top‑to‑bottom) when attacking the top goal:
- *   Top row:    LW (net‑front)
- *   Middle row: LD, C, RW (shooters, in that left‑to‑right order)
- *   Bottom row: RD (quarterback)
- */
-export function createPPRow(roles, highlightPlayerName) {
-  if (!roles || roles.length === 0) return '';
-
-  const netFrontRoles = [];  // LW
-  const slotRoles = [];      // LD, C, RW
-  const pointRoles = [];     // RD
-
-  for (const role of roles) {
-    const base = role.split('_')[0];
-    if (base === 'lw') {
-      netFrontRoles.push(role);
-    } else if (base === 'rd') {
-      pointRoles.push(role);
-    } else {
-      // ld, c, rw
-      slotRoles.push(role);
-    }
-  }
-
-  // Explicitly order the middle row left‑to‑right: LD, C, RW
-  const orderMap = { ld: 0, c: 1, rw: 2 };
-  slotRoles.sort((a, b) => {
-    const baseA = a.split('_')[0];
-    const baseB = b.split('_')[0];
-    const orderA = orderMap[baseA] ?? 99;
-    const orderB = orderMap[baseB] ?? 99;
-    return orderA - orderB;
-  });
-
-  const rows = [
-    createRow(netFrontRoles, highlightPlayerName),
-    createRow(slotRoles, highlightPlayerName),
-    createRow(pointRoles, highlightPlayerName)
-  ].filter(r => r);
-
-  return rows.join('');
-}
-
 export function createGoalieRow(highlightPlayerName) {
   const goalies = getGoalies();
   const slots = goalies.map(goalie => {
