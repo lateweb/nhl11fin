@@ -97,13 +97,12 @@ export function renderQuestion() {
   }
 
   const q = state.currentQuestion;
-  // Use classes for number and text to enable clean left‑aligned layout
+  // Reverted to old style: centered text, no visible numbers
   const optionsHtml = `
     <div class="options-grid">
       ${q.options.map((opt, index) => `
         <button class="option-btn" data-value="${opt}" data-index="${index}">
-          <span class="option-number">${index + 1}.</span>
-          <span class="option-text">${opt}</span>
+          ${opt}
         </button>
       `).join('')}
     </div>
@@ -116,6 +115,7 @@ export function renderQuestion() {
     ${optionsHtml}
   `;
 
+  // Remove any old keyboard listener to avoid duplicates
   document.removeEventListener('keydown', handleKeyDown);
   document.addEventListener('keydown', handleKeyDown);
 
@@ -125,6 +125,7 @@ export function renderQuestion() {
   state.answerLocked = false;
 }
 
+// Keyboard handler: keys 1-4 map to options 0-3
 function handleKeyDown(e) {
   if (state.answerLocked || timeLeft <= 0) return;
   const key = e.key;
