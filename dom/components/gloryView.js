@@ -30,12 +30,14 @@ export function renderGloryView() {
         <h2 class="section-main-title">Ylivoima 🔥</h2>
         <div class="lineup-stack">
           ${lineups.pp.map(line => {
-            const allRoles = [...(line.f || []), ...(line.d || [])];
+            const forwardRoles = line.f || [];
+            const defenseRoles = line.d || [];
             return `
               <div class="lineup-block">
                 <div class="lineup-header">${line.name}</div>
                 <div class="formation">
-                  ${createRow(allRoles, null)}
+                  ${createRow(forwardRoles, null)}
+                  ${createRow(defenseRoles, null)}
                 </div>
               </div>`;
           }).join('')}
