@@ -97,10 +97,14 @@ export function renderQuestion() {
   }
 
   const q = state.currentQuestion;
+  // Add number prefixes (1., 2., 3., 4.) with gray styling
   const optionsHtml = `
     <div class="options-grid">
-      ${q.options.map(opt => `
-        <button class="option-btn" data-value="${opt}">${opt}</button>
+      ${q.options.map((opt, index) => `
+        <button class="option-btn" data-value="${opt}" data-index="${index}">
+          <span style="color:#94a3b8; margin-right:12px; font-weight:400;">${index + 1}.</span>
+          ${opt}
+        </button>
       `).join('')}
     </div>
   `;
@@ -112,11 +116,31 @@ export function renderQuestion() {
     ${optionsHtml}
   `;
 
-  // Removed automatic focus to prevent unwanted highlighting
+  // Remove any old keyboard listener to avoid duplicates
+  document.removeEventListener('keydown', handleKeyDown);
+  document.addEventListener('keydown', handleKeyDown);
+
   document.querySelectorAll('.option-btn').forEach(btn => {
     btn.addEventListener('click', () => handleAnswer(btn.dataset.value));
   });
   state.answerLocked = false;
+}
+
+// Keyboard handler: keys 1-4 map to options 0-3
+function handleKeyDown(e) {
+  if (state.answerLocked || timeLeft <= 0) return;
+  const key = e.key;
+  if (key >= '1' && key <= '4') {
+    e.preventDefault();
+    const index = parseInt(key, 10) - 1;
+    const buttons = document.querySelectorAll('.option-btn');
+    if (buttons.length > index) {
+      const btn = buttons[index];
+      if (!btn.disabled) {
+        handleAnswer(btn.dataset.value);
+      }
+    }
+  }
 }
 
 function handleAnswer(selected) {
