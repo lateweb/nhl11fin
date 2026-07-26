@@ -31,8 +31,9 @@
 }
 
 .player-card-jersey .jersey-name {
+  font-family: 'Anton', 'Impact', sans-serif;
   font-size: var(--jersey-name-size);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--jersey-primary);
   text-transform: uppercase;
   margin-top: clamp(10px, 1.8vw, 16px);
@@ -43,8 +44,9 @@
 }
 
 .player-card-jersey .jersey-number {
+  font-family: 'Anton', 'Impact', sans-serif;
   font-size: var(--jersey-number-size);
-  font-weight: 800;
+  font-weight: 400;
   color: var(--jersey-primary);
   line-height: 1;
   text-shadow: var(--jersey-number-text-shadow);
